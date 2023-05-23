@@ -125,7 +125,7 @@ const Footer = () => (
                         {/* Do not translate */}
                         {'TurboWarp Desktop'}
                     </a>
-                    <a href="https://packager.turbowarp.org/">
+                    <a href="http://www.better-extension.com/packager/">
                         {/* Do not translate */}
                         {'TurboWarp Packager'}
                     </a>

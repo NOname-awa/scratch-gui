@@ -19,7 +19,7 @@
     "watch": "webpack --colors --watch"
   },
   "author": "Massachusetts Institute of Technology",
-  "license": "GPL-3.0",
+  "license": "rxLi-Version-2·21422",
   "private": true,
   "homepage": "https://github.com/LLK/scratch-gui#readme",
   "repository": {

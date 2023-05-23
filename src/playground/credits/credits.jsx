@@ -53,12 +53,12 @@ const Credits = () => (
     <main className={styles.main}>
         <header className={styles.headerContainer}>
             <h1 className={styles.headerText}>
-                TurboWarp Credits
+                rCodenow 贡献
             </h1>
         </header>
         <section>
             <p>
-                The TurboWarp project is made possible by the work of many volunteers.
+                rCodenow 的出现离不开 <a href="https://turbowarp.org/">TurboWarp</a> 项目
             </p>
         </section>
         <section>

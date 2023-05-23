@@ -14,13 +14,18 @@ class CustomProcedures extends React.Component {
             'handleAddBoolean',
             'handleAddTextNumber',
             'handleToggleWarp',
+            'handleToggleReturn',
+            'handleToggleGlobal',
             'handleCancel',
             'handleOk',
             'setBlocks'
         ]);
         this.state = {
             rtlOffset: 0,
-            warp: false
+            warp: false,
+            return: false,
+            is_new: null,
+            global: false,
         };
     }
     componentWillUnmount () {
@@ -50,7 +55,7 @@ class CustomProcedures extends React.Component {
         this.mutationRoot.setMovable(false);
         this.mutationRoot.setDeletable(false);
         this.mutationRoot.contextMenu = false;
-
+        //console.log(this.mutationRoot);
         this.workspace.addChangeListener(() => {
             this.mutationRoot.onChangeFn();
             // Keep the block centered on the workspace
@@ -101,10 +106,19 @@ class CustomProcedures extends React.Component {
             }
             this.mutationRoot.moveBy(dx, dy);
         });
+        
+        let m = this.props.mutator
+        this.state.is_new = m.getAttribute('Warp');
+        if (this.state.is_new == null){
+            m.setAttribute('return', false);
+            m.setAttribute('global', false);
+        }
         this.mutationRoot.domToMutation(this.props.mutator);
         this.mutationRoot.initSvg();
         this.mutationRoot.render();
         this.setState({warp: this.mutationRoot.getWarp()});
+        this.setState({return: this.mutationRoot.getReturn()});
+        this.setState({global: this.mutationRoot.getGlobal()});
         // Allow the initial events to run to position this block, then focus.
         setTimeout(() => {
             this.mutationRoot.focusLastEditor_();
@@ -114,7 +128,7 @@ class CustomProcedures extends React.Component {
         this.props.onRequestClose();
     }
     handleOk () {
-        const newMutation = this.mutationRoot ? this.mutationRoot.mutationToDom(true) : null;
+        const newMutation = this.mutationRoot ? this.mutationRoot.mutationToDom(true,true) : null;
         this.props.onRequestClose(newMutation);
     }
     handleAddLabel () {
@@ -132,6 +146,11 @@ class CustomProcedures extends React.Component {
             this.mutationRoot.addStringNumberExternal();
         }
     }
+    handleAddNumber () {
+        if (this.mutationRoot) {
+            this.mutationRoot.addNumberExternal();
+        }
+    }
     handleToggleWarp () {
         if (this.mutationRoot) {
             const newWarp = !this.mutationRoot.getWarp();
@@ -139,17 +158,36 @@ class CustomProcedures extends React.Component {
             this.setState({warp: newWarp});
         }
     }
+    handleToggleReturn(){
+        if (this.mutationRoot) {
+            const newReturn = !this.mutationRoot.getReturn();
+            this.mutationRoot.setReturn(newReturn);
+            this.setState({return: newReturn});
+        }
+    }
+    handleToggleGlobal(){
+        if (this.mutationRoot) {
+            const newGlobal = !this.mutationRoot.getGlobal();
+            this.mutationRoot.setGlobal(newGlobal);
+            this.setState({global: newGlobal});
+        }  
+    }
     render () {
         return (
             <CustomProceduresComponent
                 componentRef={this.setBlocks}
                 warp={this.state.warp}
+                return={this.state.return}
+                global={this.state.global}
                 onAddBoolean={this.handleAddBoolean}
                 onAddLabel={this.handleAddLabel}
                 onAddTextNumber={this.handleAddTextNumber}
                 onCancel={this.handleCancel}
                 onOk={this.handleOk}
                 onToggleWarp={this.handleToggleWarp}
+                onToggleReturn={this.handleToggleReturn}
+                onToggleGlobal={this.handleToggleGlobal}
+                is_new={this.state.is_new}
             />
         );
     }
@@ -175,7 +213,7 @@ CustomProcedures.defaultOptions = {
     zoom: {
         controls: false,
         wheel: false,
-        startScale: 0.9
+        startScale: 1
     },
     comments: false,
     collapse: false,

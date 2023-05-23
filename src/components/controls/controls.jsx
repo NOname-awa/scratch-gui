@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {defineMessages, injectIntl, intlShape} from 'react-intl';
+import { defineMessages, injectIntl, intlShape } from 'react-intl';
 
 import GreenFlag from '../green-flag/green-flag.jsx';
 import StopAll from '../stop-all/stop-all.jsx';
 import TurboMode from '../turbo-mode/turbo-mode.jsx';
 import FramerateIndicator from '../tw-framerate-indicator/framerate-indicator.jsx';
-import {STAGE_SIZE_MODES} from '../../lib/layout-constants.js';
+import { STAGE_SIZE_MODES } from '../../lib/layout-constants.js';
 
 import styles from './controls.css';
 

@@ -70,6 +70,7 @@ class FeaturedProjects extends React.Component {
                         </div>
                     )}
                 </div>
+                
                 <div className={styles.footer}>
                     <a
                         target="_blank"

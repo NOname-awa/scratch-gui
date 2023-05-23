@@ -13,6 +13,7 @@ export default {
   "ro": () => require("../addons-l10n-settings/ro.json"),
   "ru": () => require("../addons-l10n-settings/ru.json"),
   "sl": () => require("../addons-l10n-settings/sl.json"),
-  "tr": () => require("../addons-l10n-settings/tr.json"),
+  "tr": () => require("../addons-l10n-settings/tr.json"),  
+  "zh": () => require("../addons-l10n-settings/zh.json"),
   "zh-tw": () => require("../addons-l10n-settings/zh-tw.json"),
 };

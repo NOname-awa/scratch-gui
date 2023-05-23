@@ -49,75 +49,75 @@ export const initialState = {
 const reducer = function (state, action) {
     if (typeof state === 'undefined') state = initialState;
     switch (action.type) {
-    case SET_FRAMERATE:
-        return Object.assign({}, state, {
-            framerate: action.framerate
-        });
-    case SET_INTERPOLATION:
-        return Object.assign({}, state, {
-            interpolation: action.interpolation
-        });
-    case SET_COMPILER_OPTIONS:
-        return Object.assign({}, state, {
-            compilerOptions: action.compilerOptions
-        });
-    case SET_RUNTIME_OPTIONS:
-        return Object.assign({}, state, {
-            runtimeOptions: action.runtimeOptions
-        });
-    case SET_USERNAME:
-        return Object.assign({}, state, {
-            username: action.username
-        });
-    case SET_CLOUD:
-        return Object.assign({}, state, {
-            cloud: action.cloud
-        });
-    case SET_HIGH_QUALITY_PEN:
-        return Object.assign({}, state, {
-            highQualityPen: action.highQualityPen
-        });
-    case SET_WINDOW_FULLSCREEN:
-        return Object.assign({}, state, {
-            isWindowFullScreen: action.isWindowFullScreen
-        });
-    case SET_DIMENSIONS:
-        return Object.assign({}, state, {
-            dimensions: action.dimensions
-        });
-    case SET_AUTHOR:
-        return Object.assign({}, state, {
-            author: action.author
-        });
-    case SET_DESCRIPTION:
-        return Object.assign({}, state, {
-            description: action.description
-        });
-    case ADD_COMPILE_ERROR:
-        return Object.assign({}, state, {
-            compileErrors: [
-                action.error,
-                ...state.compileErrors.slice(0, 4)
-            ]
-        });
-    case CLEAR_COMPILE_ERRORS:
-        return Object.assign({}, state, {
-            compileErrors: []
-        });
-    case SET_FILE_HANDLE:
-        return Object.assign({}, state, {
-            fileHandle: action.fileHandle
-        });
-    case SET_USERNAME_INVALID:
-        return Object.assign({}, state, {
-            usernameInvalid: action.usernameInvalid
-        });
-    case SET_HAS_CLOUD_VARIABLES:
-        return Object.assign({}, state, {
-            hasCloudVariables: action.hasCloudVariables
-        });
-    default:
-        return state;
+        case SET_FRAMERATE:
+            return Object.assign({}, state, {
+                framerate: action.framerate
+            });
+        case SET_INTERPOLATION:
+            return Object.assign({}, state, {
+                interpolation: action.interpolation
+            });
+        case SET_COMPILER_OPTIONS:
+            return Object.assign({}, state, {
+                compilerOptions: action.compilerOptions
+            });
+        case SET_RUNTIME_OPTIONS:
+            return Object.assign({}, state, {
+                runtimeOptions: action.runtimeOptions
+            });
+        case SET_USERNAME:
+            return Object.assign({}, state, {
+                username: action.username
+            });
+        case SET_CLOUD:
+            return Object.assign({}, state, {
+                cloud: action.cloud
+            });
+        case SET_HIGH_QUALITY_PEN:
+            return Object.assign({}, state, {
+                highQualityPen: action.highQualityPen
+            });
+        case SET_WINDOW_FULLSCREEN:
+            return Object.assign({}, state, {
+                isWindowFullScreen: action.isWindowFullScreen
+            });
+        case SET_DIMENSIONS:
+            return Object.assign({}, state, {
+                dimensions: action.dimensions
+            });
+        case SET_AUTHOR:
+            return Object.assign({}, state, {
+                author: action.author
+            });
+        case SET_DESCRIPTION:
+            return Object.assign({}, state, {
+                description: action.description
+            });
+        case ADD_COMPILE_ERROR:
+            return Object.assign({}, state, {
+                compileErrors: [
+                    action.error,
+                    ...state.compileErrors.slice(0, 4)
+                ]
+            });
+        case CLEAR_COMPILE_ERRORS:
+            return Object.assign({}, state, {
+                compileErrors: []
+            });
+        case SET_FILE_HANDLE:
+            return Object.assign({}, state, {
+                fileHandle: action.fileHandle
+            });
+        case SET_USERNAME_INVALID:
+            return Object.assign({}, state, {
+                usernameInvalid: action.usernameInvalid
+            });
+        case SET_HAS_CLOUD_VARIABLES:
+            return Object.assign({}, state, {
+                hasCloudVariables: action.hasCloudVariables
+            });
+        default:
+            return state;
     }
 };
 

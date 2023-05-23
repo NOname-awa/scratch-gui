@@ -82,6 +82,102 @@ export default class DevTools {
       },
       { workspace: true }
     );
+        let s=async  (block,t,bg) => {
+      let getBase64Image=(url)=> {
+        return new Promise((resolve) => {
+          fetch(url).then(r => r.blob()).then(blob => {
+            var reader = new FileReader();
+            reader.onload = function () {
+              resolve(reader.result)
+            };
+            reader.readAsDataURL(blob);
+          });
+        })
+      }
+      let ohtml,html,bb,eimg,linkList={},cw=-999999;
+      ohtml=block.svgGroup_;
+      if(bg){
+        while(ohtml.className.animVal!=='blocklyBlockCanvas')
+        ohtml=ohtml.parentElement;
+      }
+      bb=ohtml.getBBox();
+      html=$(ohtml).clone()[0];
+      $(html).attr('transform','translate(30,30)')
+      eimg=html.getElementsByTagName('image');
+      for(let i=0;i<eimg.length;i++){
+        let d=$(eimg[i]);
+        let link=d.attr('xlink:href');
+        if(!link.startsWith('data')){
+          if(!linkList[link])
+          linkList[link]=await getBase64Image(link)
+          d.attr('xlink:href',linkList[link]);
+        }
+
+      }
+      if(bg){
+        let x=[],y=[],cl=html.childNodes,ol=ohtml.childNodes;
+        for(let i=0;i<cl.length;i++){
+          let d=$(cl[i]);
+          let xy = d.attr('transform').split('(')[1].split(')')[0].split(',')
+          x[i]=+xy[0];
+          y[i]=+xy[1];
+          let r=x[i]+ol[i].getBBox().width;
+          console.log(xy[0],r,ol[i])
+          if(r>cw) cw=r;
+        }
+        let mx=Math.min(...x),my=Math.min(...y)
+        cw=cw-mx
+        console.log(cw,mx)
+        for(let i=0;i<cl.length;i++){
+          let d=$(cl[i]);
+          d.attr('transform',`translate(${x[i]-mx},${y[i]-my})`).attr('style','')
+        }
+      }
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      let svg =
+        `<svg width="999999" height="999999" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <style xmlns="http://www.w3.org/2000/svg">
+          .blocklyText {
+              fill: #fff;
+              font-family: "Helvetica Neue", Helvetica, sans-serif;
+              font-size: 12pt;
+              font-weight: 500;
+          }
+          .blocklyEditableText>text {
+              fill: #575E75;
+          }
+          .blocklyDropdownText {
+            fill: #fff !important;
+          }
+        </style>
+        ${html.outerHTML.replaceAll('&nbsp;', ' ')}
+        </svg>`
+      const img = new Image();
+      canvas.width = Math.max(cw,bb.width)+60;
+      canvas.height = bb.height+60;
+      if(t){
+        ctx.fillStyle = "white";
+        ctx.fillRect(0,0,canvas.width,bb.height+60);
+      }
+      img.crossOrigin = "Anonymous";
+      img.src = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+      console.log(img.src)
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0);    // 将canvas转为blob    
+        canvas.toBlob(async blob => {
+          console.log(block,bb)
+          console.log(URL.createObjectURL(blob));
+          const data = [
+            new ClipboardItem({
+              [blob.type]: blob,
+            }),
+          ];
+          navigator.clipboard.write(data)
+        });
+      }
+    };
     this.addon.tab.createBlockContextMenu(
       (items, block) => {
         items.push(

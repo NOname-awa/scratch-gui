@@ -6,13 +6,14 @@ import {defineMessages, injectIntl, intlShape, FormattedMessage} from 'react-int
 
 import booleanInputIcon from './icon--boolean-input.svg';
 import textInputIcon from './icon--text-input.svg';
+import numberInputIcon from './icon--number.svg';
 import labelIcon from './icon--label.svg';
 
 import styles from './custom-procedures.css';
 
 const messages = defineMessages({
     myblockModalTitle: {
-        defaultMessage: 'Make a Block',
+        defaultMessage: 'New Function',
         description: 'Title for the modal where you create a custom block.',
         id: 'gui.customProcedures.myblockModalTitle'
     }
@@ -50,7 +51,7 @@ const CustomProcedures = props => (
                     <div className={styles.optionDescription}>
                         <FormattedMessage
                             defaultMessage="number or text"
-                            description="Description of the number/text input type"
+                            description=""
                             id="gui.customProcedures.numberTextType"
                         />
                     </div>
@@ -112,6 +113,36 @@ const CustomProcedures = props => (
                         id="gui.customProcedures.runWithoutScreenRefresh"
                     />
                 </label>
+
+                <hr/>
+                {props.is_new == null? 
+                <div>
+                    <label>
+                        <input
+                            checked={props.return}
+                            type="checkbox"
+                            onChange={props.onToggleReturn}
+                        />
+                    <FormattedMessage
+                        defaultMessage="Return"
+                        description=""
+                        id="gui.customProcedures.return"
+                    />
+                    </label>
+                </div>
+                :
+                <div>
+                    <label>
+                        <input
+                            checked={props.return}
+                            type="checkbox"
+                            disabled 
+                        />
+                        返回值
+                    </label>
+                    (仅创建时可修改)
+                </div>
+                }
             </div>
             <Box className={styles.buttonRow}>
                 <button
@@ -148,7 +179,12 @@ CustomProcedures.propTypes = {
     onCancel: PropTypes.func.isRequired,
     onOk: PropTypes.func.isRequired,
     onToggleWarp: PropTypes.func.isRequired,
-    warp: PropTypes.bool.isRequired
+    warp: PropTypes.bool.isRequired,
+    onToggleReturn: PropTypes.func.isRequired,
+    return: PropTypes.bool.isRequired,
+    global: PropTypes.bool.isRequired,
+    onToggleGlobal:PropTypes.func.isRequired,
+    is_new: PropTypes.bool.isRequired
 };
 
 export default injectIntl(CustomProcedures);

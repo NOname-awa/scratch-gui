@@ -14,7 +14,13 @@
     color: $text-primary;
     background: $ui-secondary;
 }
-
+.span{
+    background-color: rgb(12, 67, 248);
+    color: white;
+    font-size: 8px;
+    border-radius: 5px;
+    padding: 3px;
+}
 .body input[type="checkbox"],
 .body input[type="radio"] {
     margin: 3px;

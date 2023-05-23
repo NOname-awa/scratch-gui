@@ -1,3 +1,5 @@
+import { func } from 'prop-types';
+const formatMessage = require('format-message');
 import LazyScratchBlocks from './tw-lazy-scratch-blocks';
 
 const categorySeparator = '<sep gap="36"/>';
@@ -150,11 +152,11 @@ const motion = function (isInitialSetup, isStage, targetId) {
 const xmlEscape = function (unsafe) {
     return unsafe.replace(/[<>&'"]/g, c => {
         switch (c) {
-        case '<': return '&lt;';
-        case '>': return '&gt;';
-        case '&': return '&amp;';
-        case '\'': return '&apos;';
-        case '"': return '&quot;';
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '&': return '&amp;';
+            case '\'': return '&apos;';
+            case '"': return '&quot;';
         }
     });
 };
@@ -526,6 +528,18 @@ const operators = function (isInitialSetup) {
     const letter = translate('OPERATORS_LETTEROF_APPLE', 'a');
     return `
     <category name="%{BKY_CATEGORY_OPERATORS}" id="operators" colour="#40BF4A" secondaryColour="#389438">
+        <block type="operator_power">
+            <value name="NUM1">
+            <shadow type="math_number">
+                <field name="NUM"/>
+            </shadow>
+            </value>
+            <value name="NUM2">
+                <shadow type="math_number">
+                    <field name="NUM"/>
+                </shadow>
+            </value>
+        </block>
         <block type="operator_add">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -728,6 +742,20 @@ const myBlocks = function () {
         secondaryColour="#FF4D6A"
         custom="PROCEDURE">
     </category>
+    <category
+    name="%{BKY_CATEGORY_RETURN}"
+    id="return"
+    colour="#FF6680"
+    secondaryColour="#FF4D6A"
+    >
+    <block type="procedures_return">
+        <value name="RETURN">
+        <shadow type="text">
+            <field name="TEXT"/>
+        </shadow>
+        </value>
+    </block>
+    </category>
     `;
 };
 
@@ -784,6 +812,7 @@ const makeToolboxXML = function (isInitialSetup, isStage = true, targetId, categ
     const operatorsXML = moveCategory('operators') || operators(isInitialSetup, isStage, targetId);
     const variablesXML = moveCategory('data') || variables(isInitialSetup, isStage, targetId);
     const myBlocksXML = moveCategory('procedures') || myBlocks(isInitialSetup, isStage, targetId);
+    //console.log(moveCategory('motion'))
     // Always display TurboWarp blocks as the first extension, if it exists,
     // and also add an "is compiled?" block to the top.
     let turbowarpXML = moveCategory('tw');
