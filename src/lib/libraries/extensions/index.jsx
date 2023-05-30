@@ -72,6 +72,8 @@ import toolIcon from './tool/tool.svg';
 import customExtensionIcon from './custom/custom.svg';
 
 import galleryIcon from './gallery/gallery.svg';
+import unknownIcon from './gallery/unknown.svg';
+import animatedTextIcon from './gallery/animated-text.svg';
 import stretchIcon from './gallery/stretch.svg';
 import gamepadIcon from './gallery/gamepad.svg';
 import cursorIcon from './gallery/cursor.svg';
@@ -88,6 +90,20 @@ import comparisonsIcon from './gallery/more-comparisons.svg';
 import graphics2DIcon from './gallery/graphics-2D.svg';
 import rxFSIcon from './gallery/rxFS.svg';
 import obviousalexsensingIcon from './gallery/SensingPlus.svg';
+import sensingPlusIcon from './gallery/sensingplus.svg';
+import clonesPlusIcon from './gallery/clonesplus.svg';
+import clippingBlendingIcon from './gallery/clippingblending.svg';
+import regexIcon from './gallery/regex.svg';
+import bitwiseIcon from './gallery/bitwise.svg';
+import textIcon from './gallery/text.svg';
+
+
+const galleryItem = object => ({
+    ...object,
+    tags: ['tw'],
+    incompatibleWithScratch: true,
+    featured: true
+});
 
 export default [
     {
@@ -642,11 +658,125 @@ export default [
 
         featured: true
     },
+    galleryItem({
+        name: 'Animated Text',
+        // eslint-disable-next-line max-len
+        description: 'An easy way to display and animate text. Compatible with Scratch Lab\'s Animated Text experiment.',
+        extensionId: 'text',
+        extensionURL: 'https://extensions.turbowarp.org/lab/text.js',
+        iconURL: animatedTextIcon
+    }),
+    galleryItem({
+        name: 'Stretch',
+        description: 'Stretch sprites horizontally or vertically.',
+        extensionId: 'stretch',
+        extensionURL: 'https://extensions.turbowarp.org/stretch.js',
+        iconURL: stretchIcon
+    }),
+    galleryItem({
+        name: 'Gamepad',
+        description: 'Directly access gamepads instead of just mapping buttons to keys.',
+        extensionId: 'Gamepad',
+        extensionURL: 'https://extensions.turbowarp.org/gamepad.js',
+        iconURL: gamepadIcon
+    }),
+    galleryItem({
+        name: 'Files',
+        description: 'Read and download files.',
+        extensionId: 'files',
+        extensionURL: 'https://extensions.turbowarp.org/files.js',
+        iconURL: fileIcon
+    }),
+    galleryItem({
+        name: 'Pointerlock',
+        // eslint-disable-next-line max-len
+        description: 'Adds blocks for mouse locking. Mouse x & y blocks will report the change since the previous frame while the pointer is locked.',
+        extensionId: 'pointerlock',
+        extensionURL: 'https://extensions.turbowarp.org/pointerlock.js',
+        iconURL: pointerlockIcon
+    }),
+    galleryItem({
+        name: 'Mouse Cursor',
+        description: 'Use custom cursors or hide the cursor. Also allows replacing the cursor with any costume image.',
+        extensionId: 'MouseCursor',
+        extensionURL: 'https://extensions.turbowarp.org/cursor.js',
+        iconURL: cursorIcon
+    }),
+    galleryItem({
+        name: 'Runtime Options',
+        description: 'Get and modify turbo mode, framerate, interpolation, clone limit, stage size, and more.',
+        extensionId: 'runtimeoptions',
+        extensionURL: 'https://extensions.turbowarp.org/runtime-options.js',
+        iconURL: runtimeOptionsIcon
+    }),
+    galleryItem({
+        name: 'Clones Plus',
+        description: 'Expansion of Scratch\'s clone features. Created by LukeManiaStudios.',
+        extensionId: 'lmsclonesplus',
+        extensionURL: 'https://extensions.turbowarp.org/LukeManiaStudios/ClonesPlus.js',
+        iconURL: clonesPlusIcon
+    }),
+    galleryItem({
+        name: 'Clipping & Blending',
+        description: 'Clipping outside of a specified rectangular area and additive color blending. Created by Vadik1.',
+        extensionId: 'xeltallivclipblend',
+        extensionURL: 'https://extensions.turbowarp.org/Xeltalliv/clippingblending.js',
+        iconURL: clippingBlendingIcon
+    }),
+    galleryItem({
+        name: 'Text',
+        description: 'Manipulate characters and text. Originally created by CST1229.',
+        extensionId: 'strings',
+        extensionURL: 'https://extensions.turbowarp.org/text.js',
+        iconURL: textIcon
+    }),
+    galleryItem({
+        name: 'Bitwise',
+        description: 'Blocks that operate on the binary representation of numbers in computers.',
+        extensionId: 'Bitwise',
+        extensionURL: 'https://extensions.turbowarp.org/bitwise.js',
+        iconURL: bitwiseIcon
+    }),
+    galleryItem({
+        name: 'RegExp',
+        description: 'Full interface for working with Regular Expressions. Created by TrueFantom.',
+        extensionId: 'truefantomregexp',
+        extensionURL: 'https://extensions.turbowarp.org/true-fantom/regexp.js',
+        iconURL: regexIcon
+    }),
+    galleryItem({
+        name: 'Box2D Physics',
+        description: 'Two dimensional physics. Originally created by griffpatch.',
+        extensionId: 'griffpatch',
+        extensionURL: 'https://extensions.turbowarp.org/box2d.js',
+        iconURL: box2dIcon
+    }),
+    galleryItem({
+        name: 'Fetch',
+        description: 'Make requests to the broader internet.',
+        extensionId: 'fetch',
+        extensionURL: 'https://extensions.turbowarp.org/fetch.js',
+        iconURL: fetchIcon
+    }),
+    galleryItem({
+        name: 'Local Storage',
+        description: 'Store data persistently.',
+        extensionId: 'localstorage',
+        extensionURL: 'https://extensions.turbowarp.org/local-storage.js',
+        iconURL: unknownIcon
+    }),
+    galleryItem({
+        name: 'Utilities',
+        description: 'A bunch of interesting blocks. Originally created by Sheep_maker.',
+        extensionId: 'utilities',
+        extensionURL: 'https://extensions.turbowarp.org/utilities.js',
+        iconURL: utilitiesIcon
+    }),
     {
         name: (
             <FormattedMessage
                 defaultMessage="Custom Extension"
-                description="Name of custom extension category"
+                description="Name of library item to load a custom extension from a remote source"
                 id="tw.customExtension.name"
             />
         ),
@@ -654,8 +784,8 @@ export default [
         iconURL: customExtensionIcon,
         description: (
             <FormattedMessage
-                defaultMessage="Load custom extensions from URLs."
-                description="Description of custom extension category"
+                defaultMessage="Load custom extensions from URLs, files, or JavaScript source code."
+                description="Description of library item to load a custom extension from a custom source"
                 id="tw.customExtension.description"
             />
         ),
