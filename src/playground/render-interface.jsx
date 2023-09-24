@@ -29,7 +29,6 @@ import TWStateManagerHOC from '../lib/tw-state-manager-hoc.jsx';
 import TWThemeHOC from '../lib/tw-theme-hoc.jsx';
 import SBFileUploaderHOC from '../lib/sb-file-uploader-hoc.jsx';
 import TWPackagerIntegrationHOC from '../lib/tw-packager-integration-hoc.jsx';
-import TWRestorePointHOC from '../lib/tw-restore-point-hoc.jsx';
 import SettingsStore from '../addons/settings-store-singleton';
 import '../lib/tw-fix-history-api';
 import GUI from './render-gui.jsx';
@@ -37,10 +36,9 @@ import MenuBar from '../components/menu-bar/menu-bar.jsx';
 import ProjectInput from '../components/tw-project-input/project-input.jsx';
 import FeaturedProjects from '../components/tw-featured-projects/featured-projects.jsx';
 import Description from '../components/tw-description/description.jsx';
-import WebGlModal from '../containers/webgl-modal.jsx';
 import BrowserModal from '../components/browser-modal/browser-modal.jsx';
-import CloudVariableBadge from '../components/tw-cloud-variable-badge/cloud-variable-badge.jsx';
-import {isRendererSupported, isBrowserSupported} from '../lib/tw-environment-support-prober';
+import CloudVariableBadge from '../containers/tw-cloud-variable-badge.jsx';
+import {isBrowserSupported} from '../lib/tw-environment-support-prober';
 import AddonChannels from '../addons/channels';
 import {loadServiceWorker} from './load-service-worker';
 import runAddons from '../addons/entry';
@@ -49,7 +47,7 @@ import styles from './interface.css';
 
 if (window.parent !== window) {
     // eslint-disable-next-line no-alert
-    alert('This page is embedding TurboWarp in a way that is unsupported and will cease to function in the near future. Please read https://docs.turbowarp.org/embedding');
+    alert('This page contains an invalid TurboWarp embed. Please read https://docs.turbowarp.org/embedding for instructions to create a working embed.');
     throw new Error('Invalid embed');
 }
 
@@ -249,9 +247,6 @@ class Interface extends React.Component {
                     />
                     {isHomepage ? (
                         <React.Fragment>
-                            {isRendererSupported() ? null : (
-                                <WebGlModal isRtl={isRtl} />
-                            )}
                             {isBrowserSupported() ? null : (
                                 <BrowserModal isRtl={isRtl} />
                             )}
@@ -262,7 +257,7 @@ class Interface extends React.Component {
                                 // eslint-disable-next-line max-len
                                 description.instructions === 'unshared' || description.credits === 'unshared'
                             ) && (
-                                <div className={styles.unsharedUpdate}>
+                                <div className={classNames(styles.infobox, styles.unsharedUpdate)}>
                                     <p>
                                         <FormattedMessage
                                             defaultMessage="Unshared projects are no longer visible."
@@ -385,7 +380,6 @@ const WrappedInterface = compose(
     TWProjectMetaFetcherHOC,
     TWStateManagerHOC,
     TWThemeHOC,
-    TWRestorePointHOC,
     TWPackagerIntegrationHOC
 )(ConnectedInterface);
 

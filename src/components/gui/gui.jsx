@@ -23,7 +23,6 @@ import BackdropLibrary from '../../containers/backdrop-library.jsx';
 import Watermark from '../../containers/watermark.jsx';
 
 import Backpack from '../../containers/backpack.jsx';
-import WebGlModal from '../../containers/webgl-modal.jsx';
 import BrowserModal from '../browser-modal/browser-modal.jsx';
 import TipsLibrary from '../../containers/tips-library.jsx';
 import Cards from '../../containers/cards.jsx';
@@ -35,6 +34,8 @@ import TWUsernameModal from '../../containers/tw-username-modal.jsx';
 import TWSettingsModal from '../../containers/tw-settings-modal.jsx';
 import TWSecurityManager from '../../containers/tw-security-manager.jsx';
 import TWCustomExtensionModal from '../../containers/tw-custom-extension-modal.jsx';
+import TWRestorePointManager from '../../containers/tw-restore-point-manager.jsx';
+import TWFontsModal from '../../containers/tw-fonts-modal.jsx';
 
 import layout, {STAGE_SIZE_MODES} from '../../lib/layout-constants';
 import {resolveStageSize} from '../../lib/screen-utils';
@@ -114,6 +115,7 @@ const GUIComponent = props => {
         onClickAccountNav,
         onCloseAccountNav,
         onClickAddonSettings,
+        onClickNewWindow,
         onClickTheme,
         onClickPackager,
         onLogOut,
@@ -144,6 +146,7 @@ const GUIComponent = props => {
         usernameModalVisible,
         settingsModalVisible,
         customExtensionModalVisible,
+        fontsModalVisible,
         vm,
         ...componentProps
     } = omit(props, 'dispatch');
@@ -167,9 +170,11 @@ const GUIComponent = props => {
         const alwaysEnabledModals = (
             <React.Fragment>
                 <TWSecurityManager />
+                <TWRestorePointManager />
                 {usernameModalVisible && <TWUsernameModal />}
                 {settingsModalVisible && <TWSettingsModal />}
                 {customExtensionModalVisible && <TWCustomExtensionModal />}
+                {fontsModalVisible && <TWFontsModal />}
             </React.Fragment>
         );
 
@@ -228,9 +233,6 @@ const GUIComponent = props => {
                         messageId="gui.loader.creating"
                     />
                 ) : null}
-                {isRendererSupported() ? null : (
-                    <WebGlModal isRtl={isRtl} />
-                )}
                 {isBrowserSupported() ? null : (
                     <BrowserModal isRtl={isRtl} />
                 )}
@@ -282,6 +284,7 @@ const GUIComponent = props => {
                     onClickAbout={onClickAbout}
                     onClickAccountNav={onClickAccountNav}
                     onClickAddonSettings={onClickAddonSettings}
+                    onClickNewWindow={onClickNewWindow}
                     onClickTheme={onClickTheme}
                     onClickPackager={onClickPackager}
                     onClickLogo={onClickLogo}
@@ -467,6 +470,7 @@ GUIComponent.propTypes = {
     onActivateTab: PropTypes.func,
     onClickAccountNav: PropTypes.func,
     onClickAddonSettings: PropTypes.func,
+    onClickNewWindow: PropTypes.func,
     onClickTheme: PropTypes.func,
     onClickPackager: PropTypes.func,
     onClickLogo: PropTypes.func,
@@ -496,6 +500,7 @@ GUIComponent.propTypes = {
     usernameModalVisible: PropTypes.bool,
     settingsModalVisible: PropTypes.bool,
     customExtensionModalVisible: PropTypes.bool,
+    fontsModalVisible: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired
 };
 GUIComponent.defaultProps = {

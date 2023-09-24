@@ -1,16 +1,11 @@
-import Null from './null/null.svg';
-
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import musicIconURL from './music/music.png';
 import musicInsetIconURL from './music/music-small.svg';
 
 import penIconURL from './pen/pen.png';
 import penInsetIconURL from './pen/pen-small.svg';
-
-import textURL from './text/text.png';
-import textIconURL from './text/icon.svg';
 
 import videoSensingIconURL from './videoSensing/video-sensing.png';
 import videoSensingInsetIconURL from './videoSensing/video-sensing-small.svg';
@@ -24,89 +19,39 @@ import translateInsetIconURL from './translate/translate-small.png';
 import makeymakeyIconURL from './makeymakey/makeymakey.png';
 import makeymakeyInsetIconURL from './makeymakey/makeymakey-small.svg';
 
-import gcbg from './gc/gc.svg';
-import gci from './gc/gci.svg';
+import microbitIconURL from './microbit/microbit.png';
+import microbitInsetIconURL from './microbit/microbit-small.svg';
+import microbitConnectionIconURL from './microbit/microbit-illustration.svg';
+import microbitConnectionSmallIconURL from './microbit/microbit-small.svg';
 
-import databg from './data/data.png';
-import dataI from './data/dataI.png';
+import ev3IconURL from './ev3/ev3.png';
+import ev3InsetIconURL from './ev3/ev3-small.svg';
+import ev3ConnectionIconURL from './ev3/ev3-hub-illustration.svg';
+import ev3ConnectionSmallIconURL from './ev3/ev3-small.svg';
 
-import operationIcon from './operation/operation.png';
+import wedo2IconURL from './wedo2/wedo.png'; // TODO: Rename file names to match variable/prop names?
+import wedo2InsetIconURL from './wedo2/wedo-small.svg';
+import wedo2ConnectionIconURL from './wedo2/wedo-illustration.svg';
+import wedo2ConnectionSmallIconURL from './wedo2/wedo-small.svg';
+import wedo2ConnectionTipIconURL from './wedo2/wedo-button-illustration.svg';
 
-import controlIcon from './Control/Control.png';
+import boostIconURL from './boost/boost.png';
+import boostInsetIconURL from './boost/boost-small.svg';
+import boostConnectionIconURL from './boost/boost-illustration.svg';
+import boostConnectionSmallIconURL from './boost/boost-small.svg';
+import boostConnectionTipIconURL from './boost/boost-button-illustration.svg';
 
-import sensingIcon from './sensing/sensing.svg';
+import gdxforIconURL from './gdxfor/gdxfor.png';
+import gdxforInsetIconURL from './gdxfor/gdxfor-small.svg';
+import gdxforConnectionIconURL from './gdxfor/gdxfor-illustration.svg';
+import gdxforConnectionSmallIconURL from './gdxfor/gdxfor-small.svg';
 
-import regular_expressionIcon from './regular_expression/regular_expression.png';
-
-import jsIcon from './js/js.png';
-
+import twIcon from './tw/tw.svg';
 import customExtensionIcon from './custom/custom.svg';
-
-import box2dIcon from './box2d/box2d.svg';
-import box2dI from './box2d/box2d_Icon.svg';
+import returnIcon from './custom/return.svg';
+import galleryIcon from './gallery/gallery.svg';
 
 export default [
-    {
-        name: (
-            <FormattedMessage
-                defaultMessage="Custom Extension"
-                description="Name of library item to load a custom extension from a remote source"
-                id="tw.customExtension.name"
-            />
-        ),
-        extensionId: '',
-        iconURL: customExtensionIcon,
-        description: (
-            <FormattedMessage
-                defaultMessage="Load custom extensions from URLs, files, or JavaScript source code."
-                description="Description of library item to load a custom extension from a custom source"
-                id="tw.customExtension.description"
-            />
-        ),
-        tags: ['tool'],
-        internetConnectionRequired: true,
-        featured: true
-    },
-    {
-        name: (
-            <FormattedMessage
-                defaultMessage="Pen"
-                description="Name for the 'Pen' extension"
-                id="gui.extension.pen.name"
-            />
-        ),
-        extensionId: 'pen',
-        iconURL: penIconURL,
-        insetIconURL: penInsetIconURL,
-        description: (
-            <FormattedMessage
-                defaultMessage="Draw with your sprites."
-                description="Description for the 'Pen' extension"
-                id="gui.extension.pen.description"
-            />
-        ),
-        tags: ['scratch'],
-        featured: true,
-        collaborator: 'ScratchTeam & 大主教大祭司 & NOname'
-    },
-    {
-        name: '运动',
-        extensionId: 'MOTION',
-        iconURL: Null,
-        description: '运动扩展',
-        tags: ['operation'],
-        featured: true
-    },
-    {
-        name: '动画文字',
-        extensionId: 'text',
-        iconURL: textURL,
-        insetIconURL: textIconURL,
-        description: "把角色变成动画文字。",
-        collaborator: 'ScratchLab & GarboMuffin',
-        tags: ['scratch', 'tool'],
-        featured: true
-    },
     {
         name: (
             <FormattedMessage
@@ -129,38 +74,24 @@ export default [
         featured: true
     },
     {
-        name: '控制',
-        extensionId: 'CONTROL',
-        iconURL: controlIcon,
-        description: '控制扩展',
-        tags: ['operation'],
-        featured: true
-    },
-    {
-        name: '侦测',
-        extensionId: 'SENSING',
-        iconURL: sensingIcon,
-        description: '侦测扩展',
-        tags: ['tool'],
-        featured: true
-    },
-    {
-        name: '运算',
-        extensionId: 'OPERATION',
-        iconURL: operationIcon,
-        description: '高级运算，包含了数学、字符串、位运算、二维图形运算等。',
-        tags: ['operation'],
-        featured: true
-    },
-    {
-        name: '物理引擎',
-        collaborator: 'griffpatch',
-        extensionId: 'box2d',
-        iconURL: box2dIcon,
-        insetIconURL: box2dI,
-        description: '模拟 2D 刚体物体运动的引擎，帮你创造一个符合现实物理法则的二维世界。',
-        tags: ['tool', 'other'],
-
+        name: (
+            <FormattedMessage
+                defaultMessage="Pen"
+                description="Name for the 'Pen' extension"
+                id="gui.extension.pen.name"
+            />
+        ),
+        extensionId: 'pen',
+        iconURL: penIconURL,
+        insetIconURL: penInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Draw with your sprites."
+                description="Description for the 'Pen' extension"
+                id="gui.extension.pen.description"
+            />
+        ),
+        tags: ['scratch'],
         featured: true
     },
     {
@@ -181,7 +112,7 @@ export default [
                 id="gui.extension.videosensing.description"
             />
         ),
-        tags: ['scratch', 'tool'],
+        tags: ['scratch'],
         featured: true
     },
     {
@@ -203,7 +134,7 @@ export default [
                 id="gui.extension.text2speech.description"
             />
         ),
-        tags: ['scratch', 'tool'],
+        tags: ['scratch'],
         featured: true,
         internetConnectionRequired: true
     },
@@ -226,7 +157,7 @@ export default [
                 id="gui.extension.translate.description"
             />
         ),
-        tags: ['scratch', 'tool'],
+        tags: ['scratch'],
         featured: true,
         internetConnectionRequired: true
     },
@@ -243,41 +174,297 @@ export default [
                 id="gui.extension.makeymakey.description"
             />
         ),
-        tags: ['scratch', 'tool'],
+        tags: ['scratch'],
         featured: true
     },
     {
-        name: '数据',
-        extensionId: 'Data',
-        insetIconURL: dataI,
-        iconURL: databg,
-        description: '数据处理。',
-        tags: ['operation'],
+        name: 'micro:bit',
+        extensionId: 'microbit',
+        collaborator: 'micro:bit',
+        iconURL: microbitIconURL,
+        insetIconURL: microbitInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Connect your projects with the world."
+                description="Description for the 'micro:bit' extension"
+                id="gui.extension.microbit.description"
+            />
+        ),
+        tags: ['scratch'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: true,
+        useAutoScan: false,
+        connectionIconURL: microbitConnectionIconURL,
+        connectionSmallIconURL: microbitConnectionSmallIconURL,
+        connectingMessage: (
+            <FormattedMessage
+                defaultMessage="Connecting"
+                description="Message to help people connect to their micro:bit."
+                id="gui.extension.microbit.connectingMessage"
+            />
+        ),
+        helpLink: 'https://scratch.mit.edu/microbit'
+    },
+    {
+        name: 'LEGO MINDSTORMS EV3',
+        extensionId: 'ev3',
+        collaborator: 'LEGO',
+        iconURL: ev3IconURL,
+        insetIconURL: ev3InsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Build interactive robots and more."
+                description="Description for the 'LEGO MINDSTORMS EV3' extension"
+                id="gui.extension.ev3.description"
+            />
+        ),
+        tags: ['scratch'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: true,
+        useAutoScan: false,
+        connectionIconURL: ev3ConnectionIconURL,
+        connectionSmallIconURL: ev3ConnectionSmallIconURL,
+        connectingMessage: (
+            <FormattedMessage
+                defaultMessage="Connecting. Make sure the pin on your EV3 is set to 1234."
+                description="Message to help people connect to their EV3. Must note the PIN should be 1234."
+                id="gui.extension.ev3.connectingMessage"
+            />
+        ),
+        helpLink: 'https://scratch.mit.edu/ev3'
+    },
+    {
+        name: 'LEGO BOOST',
+        extensionId: 'boost',
+        collaborator: 'LEGO',
+        iconURL: boostIconURL,
+        insetIconURL: boostInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Bring robotic creations to life."
+                description="Description for the 'LEGO BOOST' extension"
+                id="gui.extension.boost.description"
+            />
+        ),
+        tags: ['scratch'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: true,
+        useAutoScan: true,
+        connectionIconURL: boostConnectionIconURL,
+        connectionSmallIconURL: boostConnectionSmallIconURL,
+        connectionTipIconURL: boostConnectionTipIconURL,
+        connectingMessage: (
+            <FormattedMessage
+                defaultMessage="Connecting"
+                description="Message to help people connect to their BOOST."
+                id="gui.extension.boost.connectingMessage"
+            />
+        ),
+        helpLink: 'https://scratch.mit.edu/boost'
+    },
+    {
+        name: 'LEGO Education WeDo 2.0',
+        extensionId: 'wedo2',
+        collaborator: 'LEGO',
+        iconURL: wedo2IconURL,
+        insetIconURL: wedo2InsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Build with motors and sensors."
+                description="Description for the 'LEGO WeDo 2.0' extension"
+                id="gui.extension.wedo2.description"
+            />
+        ),
+        tags: ['scratch'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: true,
+        useAutoScan: true,
+        connectionIconURL: wedo2ConnectionIconURL,
+        connectionSmallIconURL: wedo2ConnectionSmallIconURL,
+        connectionTipIconURL: wedo2ConnectionTipIconURL,
+        connectingMessage: (
+            <FormattedMessage
+                defaultMessage="Connecting"
+                description="Message to help people connect to their WeDo."
+                id="gui.extension.wedo2.connectingMessage"
+            />
+        ),
+        helpLink: 'https://scratch.mit.edu/wedo'
+    },
+    {
+        name: 'Go Direct Force & Acceleration',
+        extensionId: 'gdxfor',
+        collaborator: 'Vernier',
+        iconURL: gdxforIconURL,
+        insetIconURL: gdxforInsetIconURL,
+        description: (
+            <FormattedMessage
+                defaultMessage="Sense push, pull, motion, and spin."
+                description="Description for the Vernier Go Direct Force and Acceleration sensor extension"
+                id="gui.extension.gdxfor.description"
+            />
+        ),
+        tags: ['scratch'],
+        featured: true,
+        disabled: false,
+        bluetoothRequired: true,
+        internetConnectionRequired: true,
+        launchPeripheralConnectionFlow: true,
+        useAutoScan: false,
+        connectionIconURL: gdxforConnectionIconURL,
+        connectionSmallIconURL: gdxforConnectionSmallIconURL,
+        connectingMessage: (
+            <FormattedMessage
+                defaultMessage="Connecting"
+                description="Message to help people connect to their force and acceleration sensor."
+                id="gui.extension.gdxfor.connectingMessage"
+            />
+        ),
+        helpLink: 'https://scratch.mit.edu/vernier'
+    },
+    {
+        // not really an extension, but it's easiest to present it as one
+        name: (
+            <FormattedMessage
+                defaultMessage="Custom Reporters"
+                description="Name of custom reporters extension"
+                id="tw.customReporters.name"
+            />
+        ),
+        extensionId: 'procedures_enable_return',
+        iconURL: returnIcon,
+        description: (
+            <FormattedMessage
+                defaultMessage="Allow custom blocks to output values and be used as inputs."
+                description="Description of custom reporters extension"
+                id="tw.customReporters.description"
+            />
+        ),
+        tags: ['tw'],
+        incompatibleWithScratch: true,
         featured: true
     },
     {
-        name: '数据 New',
-        extensionId: 'DATA',
-        insetIconURL: dataI,
-        iconURL: databg,
-        description: '数据处理。',
-        tags: ['operation'],
+        name: (
+            <FormattedMessage
+                defaultMessage="TurboWarp Blocks"
+                description="Name of TW extension"
+                id="tw.twExtension.name"
+            />
+        ),
+        extensionId: 'tw',
+        iconURL: twIcon,
+        description: (
+            <FormattedMessage
+                defaultMessage="Weird new blocks."
+                description="Description of TW extension"
+                id="tw.twExtension.description"
+            />
+        ),
+        incompatibleWithScratch: true,
+        tags: ['tw'],
         featured: true
     },
     {
-        name: '正则表达式',
-        extensionId: 'RegularExpression',
-        iconURL: regular_expressionIcon,
-        description: '完成正则表达式相关的操作。',
-        tags: ['operation', 'tool'],
+        name: (
+            <FormattedMessage
+                defaultMessage="Custom Extension"
+                description="Name of library item to load a custom extension from a remote source"
+                id="tw.customExtension.name"
+            />
+        ),
+        extensionId: 'custom_extension',
+        iconURL: customExtensionIcon,
+        description: (
+            <FormattedMessage
+                defaultMessage="Load custom extensions from URLs, files, or JavaScript source code."
+                description="Description of library item to load a custom extension from a custom source"
+                id="tw.customExtension.description"
+            />
+        ),
+        tags: ['tw'],
         featured: true
-    },
-    {
-        name: 'JS',
-        extensionId: 'JavaScript',
-        iconURL: jsIcon,
-        description: 'JS',
-        tags: ['tool'],
-        featured: true
+        // Not marked as incompatible with Scratch so that clicking on it doesn't show a prompt
     }
 ];
+
+export const galleryLoading = {
+    name: (
+        <FormattedMessage
+            defaultMessage="TurboWarp Extension Gallery"
+            description="Name of extensions.turbowarp.org in extension library"
+            id="tw.extensionGallery.name"
+        />
+    ),
+    href: 'https://extensions.turbowarp.org/',
+    extensionId: 'gallery',
+    iconURL: galleryIcon,
+    description: (
+        <FormattedMessage
+            // eslint-disable-next-line max-len
+            defaultMessage="Loading extension gallery..."
+            description="Appears while loading extension list from the custom extension gallery"
+            id="tw.extensionGallery.loading"
+        />
+    ),
+    tags: ['tw'],
+    featured: true
+};
+
+export const galleryMore = {
+    name: (
+        <FormattedMessage
+            defaultMessage="TurboWarp Extension Gallery"
+            description="Name of extensions.turbowarp.org in extension library"
+            id="tw.extensionGallery.name"
+        />
+    ),
+    href: 'https://extensions.turbowarp.org/',
+    extensionId: 'gallery',
+    iconURL: galleryIcon,
+    description: (
+        <FormattedMessage
+            // eslint-disable-next-line max-len
+            defaultMessage="Learn more about extensions at extensions.turbowarp.org."
+            description="Appears after the extension list from the gallery was loaded successfully"
+            id="tw.extensionGallery.more"
+        />
+    ),
+    tags: ['tw'],
+    featured: true
+};
+
+export const galleryError = {
+    name: (
+        <FormattedMessage
+            defaultMessage="TurboWarp Extension Gallery"
+            description="Name of extensions.turbowarp.org in extension library"
+            id="tw.extensionGallery.name"
+        />
+    ),
+    href: 'https://extensions.turbowarp.org/',
+    extensionId: 'gallery',
+    iconURL: galleryIcon,
+    description: (
+        <FormattedMessage
+            // eslint-disable-next-line max-len
+            defaultMessage="Error loading extension gallery. Visit extensions.turbowarp.org to find more extensions."
+            description="Appears when an error occurred loading extension list from the custom extension gallery"
+            id="tw.extensionGallery.error"
+        />
+    ),
+    tags: ['tw'],
+    featured: true
+};

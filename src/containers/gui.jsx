@@ -59,8 +59,7 @@ class GUI extends React.Component {
     }
     render () {
         if (this.props.isError) {
-            throw new Error(
-                `Error in GUI [location=${window.location}]: ${this.props.error}`);
+            throw this.props.error;
         }
         const {
             /* eslint-disable no-unused-vars */
@@ -157,6 +156,7 @@ const mapStateToProps = state => {
         usernameModalVisible: state.scratchGui.modals.usernameModal,
         settingsModalVisible: state.scratchGui.modals.settingsModal,
         customExtensionModalVisible: state.scratchGui.modals.customExtensionModal,
+        fontsModalVisible: state.scratchGui.modals.fontsModal,
         vm: state.scratchGui.vm
     };
 };
