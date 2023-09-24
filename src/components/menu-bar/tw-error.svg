@@ -1,2 +1,63 @@
-<!-- From https://github.com/google/material-design-icons -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="180"
+   height="180"
+   viewBox="-12.459515,-15.326295,180,180"
+   id="svg12"
+   sodipodi:docname="tw-error.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.6555556"
+     inkscape:cx="126.40811"
+     inkscape:cy="60.465394"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12"
+     showguides="false" />
+  <path
+     d="m 91.48221,7.5 c 6.98805,13.9761 39.10807,78.645749 56.09876,112.19753 6.69591,13.22251 -1.1504,22.14987 -13.31234,22.14987 H 22.66369 c -11.26995,0 -19.4744,-9.06676 -12.71245,-22.59067 C 26.38396,86.3913 57.911214,22.69239 65.65494,7.84933 71.878029,-4.0789966 85.53157,-4.40125 91.4822,7.5 Z"
+     fill="none"
+     stroke="#ffffff"
+     stroke-width="15"
+     stroke-linecap="butt"
+     id="path2"
+     style="mix-blend-mode:normal;fill:none;fill-rule:nonzero;stroke:#ffffff;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stroke-width:15;stroke-linecap:round;paint-order:markers fill stroke"
+     sodipodi:nodetypes="ssssssss" />
+  <path
+     d="m 78.940619,48.951104 v 44.8805"
+     fill="none"
+     stroke="#ffffff"
+     stroke-width="14.275"
+     stroke-linecap="round"
+     id="path4"
+     style="mix-blend-mode:normal;fill:#ffffff;fill-rule:nonzero;stroke:#ffffff;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <path
+     d="m 78.940339,103.1356 v 15.4533"
+     fill="none"
+     stroke="#ffffff"
+     stroke-width="14.275"
+     stroke-linecap="round"
+     id="path4-2"
+     style="mix-blend-mode:normal;fill:#000000;fill-rule:nonzero;stroke:#ffffff;stroke-width:15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+</svg>
+<!--rotationCenter:78.94061630466877:70.27261027199981-->
+

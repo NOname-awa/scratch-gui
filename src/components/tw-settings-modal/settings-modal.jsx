@@ -1,4 +1,4 @@
-import {defineMessages, FormattedMessage, intlShape, injectIntl} from 'react-intl';
+import { defineMessages, FormattedMessage, intlShape, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
@@ -41,7 +41,7 @@ const LearnMore = props => (
 );
 
 class UnwrappedSetting extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         bindAll(this, [
             'handleClickHelp'
@@ -50,7 +50,7 @@ class UnwrappedSetting extends React.Component {
             helpVisible: false
         };
     }
-    componentDidUpdate (prevProps) {
+    componentDidUpdate(prevProps) {
         if (this.props.active && !prevProps.active) {
             // eslint-disable-next-line react/no-did-update-set-state
             this.setState({
@@ -58,12 +58,12 @@ class UnwrappedSetting extends React.Component {
             });
         }
     }
-    handleClickHelp () {
+    handleClickHelp() {
         this.setState(prevState => ({
             helpVisible: !prevState.helpVisible
         }));
     }
-    render () {
+    render() {
         return (
             <div
                 className={classNames(styles.setting, {
@@ -81,7 +81,6 @@ class UnwrappedSetting extends React.Component {
                 {this.state.helpVisible && (
                     <div className={styles.detail}>
                         {this.props.help}
-                        {this.props.slug && <LearnMore slug={this.props.slug} />}
                     </div>
                 )}
                 {this.props.secondary}
@@ -99,7 +98,7 @@ UnwrappedSetting.propTypes = {
 };
 const Setting = injectIntl(UnwrappedSetting);
 
-const BooleanSetting = ({value, onChange, label, ...props}) => (
+const BooleanSetting = ({ value, onChange, label, ...props }) => (
     <Setting
         {...props}
         active={value}
@@ -131,14 +130,6 @@ const HighQualityPen = props => (
                 id="tw.settingsModal.highQualityPen"
             />
         }
-        help={
-            <FormattedMessage
-                // eslint-disable-next-line max-len
-                defaultMessage="Allows pen projects to render at higher resolutions and disables some coordinate rounding in the editor. Not all projects benefit from this setting and it may impact performance."
-                description="High quality pen setting help"
-                id="tw.settingsModal.highQualityPenHelp"
-            />
-        }
         slug="high-quality-pen"
     />
 );
@@ -148,33 +139,7 @@ const CustomFPS = props => (
         value={props.framerate !== 30}
         onChange={props.onChange}
         label={
-            <FormattedMessage
-                defaultMessage="60 FPS (Custom FPS)"
-                description="FPS setting"
-                id="tw.settingsModal.fps"
-            />
-        }
-        help={
-            <FormattedMessage
-                // eslint-disable-next-line max-len
-                defaultMessage="Runs scripts 60 times per second instead of 30. Most projects will not work properly with this enabled. You should try Interpolation with 60 FPS mode disabled if that is the case. {customFramerate}."
-                description="FPS setting help"
-                id="tw.settingsModal.fpsHelp"
-                values={{
-                    customFramerate: (
-                        <a
-                            onClick={props.onCustomizeFramerate}
-                            tabIndex="0"
-                        >
-                            <FormattedMessage
-                                defaultMessage="Click to use a framerate other than 30 or 60"
-                                description="FPS settings help"
-                                id="tw.settingsModal.fpsHelp.customFramerate"
-                            />
-                        </a>
-                    )
-                }}
-            />
+            "60 FPS"
         }
         slug="custom-fps"
     />
@@ -195,14 +160,6 @@ const Interpolation = props => (
                 id="tw.settingsModal.interpolation"
             />
         }
-        help={
-            <FormattedMessage
-                // eslint-disable-next-line max-len
-                defaultMessage="Makes projects appear smoother by interpolating sprite motion. Interpolation should not be used on 3D projects, raytracers, pen projects, and laggy projects as interpolation will make them run slower without making them appear smoother."
-                description="Interpolation setting help"
-                id="tw.settingsModal.interpolationHelp"
-            />
-        }
         slug="interpolation"
     />
 );
@@ -215,13 +172,6 @@ const InfiniteClones = props => (
                 defaultMessage="Infinite Clones"
                 description="Infinite Clones setting"
                 id="tw.settingsModal.infiniteClones"
-            />
-        }
-        help={
-            <FormattedMessage
-                defaultMessage="Disables Scratch's 300 clone limit."
-                description="Infinite Clones setting help"
-                id="tw.settingsModal.infiniteClonesHelp"
             />
         }
         slug="infinite-clones"
@@ -238,14 +188,6 @@ const RemoveFencing = props => (
                 id="tw.settingsModal.removeFencing"
             />
         }
-        help={
-            <FormattedMessage
-                // eslint-disable-next-line max-len
-                defaultMessage="Allows sprites to move offscreen, become as large or as small as they want, and makes touching blocks work offscreen."
-                description="Remove Fencing setting help"
-                id="tw.settingsModal.removeFencingHelp"
-            />
-        }
         slug="remove-fencing"
     />
 );
@@ -258,13 +200,6 @@ const RemoveMiscLimits = props => (
                 defaultMessage="Remove Miscellaneous Limits"
                 description="Remove Miscellaneous Limits setting"
                 id="tw.settingsModal.removeMiscLimits"
-            />
-        }
-        help={
-            <FormattedMessage
-                defaultMessage="Removes sound effect limits and pen size limits."
-                description="Remove Miscellaneous Limits setting help"
-                id="tw.settingsModal.removeMiscLimitsHelp"
             />
         }
         slug="remove-misc-limits"
@@ -281,14 +216,6 @@ const WarpTimer = props => (
                 id="tw.settingsModal.warpTimer"
             />
         }
-        help={
-            <FormattedMessage
-                // eslint-disable-next-line max-len
-                defaultMessage="Makes scripts check if they are stuck in a long or infinite loop and run at a low framerate instead of getting stuck until the loop finishes. This fixes most crashes but has a significant performance impact, so it's only enabled by default in the editor."
-                description="Warp Timer help"
-                id="tw.settingsModal.warpTimerHelp"
-            />
-        }
         slug="warp-timer"
     />
 );
@@ -301,14 +228,6 @@ const DisableCompiler = props => (
                 defaultMessage="Disable Compiler"
                 description="Disable Compiler setting"
                 id="tw.settingsModal.disableCompiler"
-            />
-        }
-        help={
-            <FormattedMessage
-                // eslint-disable-next-line max-len
-                defaultMessage="Disables the TurboWarp compiler. You may want to enable this while editing projects so that scripts update immediately. Otherwise, you should never enable this."
-                description="Disable Compiler help"
-                id="tw.settingsModal.disableCompilerHelp"
             />
         }
         slug="disable-compiler"
@@ -327,17 +246,16 @@ const CustomStageSize = ({
         primary={(
             <div className={classNames(styles.label, styles.customStageSize)}>
                 <FormattedMessage
-                    defaultMessage="Custom Stage Size:"
+                    defaultMessage="舞台区大小："
                     description="Custom Stage Size option"
-                    id="tw.settingsModal.customStageSize"
+                    id="tw.settingsModal.setStageSize"
                 />
                 <BufferedInput
                     value={stageWidth}
                     onSubmit={onStageWidthChange}
                     className={styles.customStageSizeInput}
                     type="number"
-                    min="0"
-                    max="1024"
+                    min="1"
                     step="1"
                 />
                 <span>{'×'}</span>
@@ -346,32 +264,10 @@ const CustomStageSize = ({
                     onSubmit={onStageHeightChange}
                     className={styles.customStageSizeInput}
                     type="number"
-                    min="0"
-                    max="1024"
+                    min="1"
                     step="1"
                 />
             </div>
-        )}
-        secondary={
-            (stageWidth >= 1000 || stageHeight >= 1000) && (
-                <div className={styles.warning}>
-                    <FormattedMessage
-                        // eslint-disable-next-line max-len
-                        defaultMessage="Using a custom stage size this large is not recommended! Instead, use a lower size with the same aspect ratio and let fullscreen mode upscale it to match the user's display."
-                        description="Warning about using stages that are too large in settings modal"
-                        id="tw.settingsModal.largeStageWarning"
-                    />
-                    <LearnMore slug="custom-stage-size" />
-                </div>
-            )
-        }
-        help={(
-            <FormattedMessage
-                // eslint-disable-next-line max-len
-                defaultMessage="Changes the size of the Scratch stage from 480x360 to something else. Try 640x360 to make the stage widescreen. Very few projects will handle this properly."
-                description="Custom Stage Size option"
-                id="tw.settingsModal.customStageSizeHelp"
-            />
         )}
         slug="custom-stage-size"
     />
@@ -384,7 +280,7 @@ CustomStageSize.propTypes = {
     onStageHeightChange: PropTypes.func
 };
 
-const StoreProjectOptions = ({onStoreProjectOptions}) => (
+const StoreProjectOptions = ({ onStoreProjectOptions }) => (
     <div className={styles.setting}>
         <div>
             <button
@@ -397,14 +293,6 @@ const StoreProjectOptions = ({onStoreProjectOptions}) => (
                     id="tw.settingsModal.storeProjectOptions"
                 />
             </button>
-            <p>
-                <FormattedMessage
-                    // eslint-disable-next-line max-len
-                    defaultMessage="Stores the selected settings in the project so they will be automatically applied when TurboWarp loads this project. Warp timer and disable compiler will not be saved."
-                    description="Help text for the store settings in project button"
-                    id="tw.settingsModal.storeProjectOptionsHelp"
-                />
-            </p>
         </div>
     </div>
 );
@@ -422,6 +310,31 @@ Header.propTypes = {
     children: PropTypes.node
 };
 
+const CustomFramerate = ({ framerate, onFramerateChange }) => (
+    <div className={classNames(styles.setting, styles.customFramerate)}>
+        <div className={styles.label}>
+            帧率：
+            <BufferedInput
+                value={framerate}
+                onSubmit={value => {
+                    setInputValue(value);
+                    vm.setFramerate(inputValue);
+                }}
+                className={styles.customStageSizeInput}
+                type="number"
+                min="0"
+                max="250"
+                step="1"
+            />
+        </div>
+    </div>
+);
+
+CustomFramerate.propTypes = {
+    framerate: PropTypes.number,
+    onFramerateChange: PropTypes.func,
+};
+
 const SettingsModalComponent = props => (
     <Modal
         className={styles.modalContent}
@@ -430,6 +343,7 @@ const SettingsModalComponent = props => (
         id="settingsModal"
     >
         <Box className={styles.body}>
+            {/*
             <Header>
                 <FormattedMessage
                     defaultMessage="Featured"
@@ -437,11 +351,15 @@ const SettingsModalComponent = props => (
                     id="tw.settingsModal.featured"
                 />
             </Header>
+            */}
             <CustomFPS
                 framerate={props.framerate}
                 onChange={props.onFramerateChange}
                 onCustomizeFramerate={props.onCustomizeFramerate}
             />
+            <a onClick={props.onCustomizeFramerate} tabIndex="0">
+                <span>{'自定义帧率'}</span>
+            </a>
             <Interpolation
                 value={props.interpolation}
                 onChange={props.onInterpolationChange}
@@ -454,13 +372,13 @@ const SettingsModalComponent = props => (
                 value={props.warpTimer}
                 onChange={props.onWarpTimerChange}
             />
-            <Header>
+            {/*<Header>
                 <FormattedMessage
                     defaultMessage="Remove Limits"
                     description="Settings modal section"
                     id="tw.settingsModal.removeLimits"
                 />
-            </Header>
+            </Header>*/}
             <InfiniteClones
                 value={props.infiniteClones}
                 onChange={props.onInfiniteClonesChange}
@@ -473,18 +391,22 @@ const SettingsModalComponent = props => (
                 value={props.removeLimits}
                 onChange={props.onRemoveLimitsChange}
             />
-            <Header>
+            {/*<Header>
                 <FormattedMessage
                     defaultMessage="Danger Zone"
                     description="Settings modal section"
                     id="tw.settingsModal.dangerZone"
                 />
-            </Header>
+            </Header>*/}
             {!props.isEmbedded && (
                 <CustomStageSize
                     {...props}
                 />
             )}
+            {/*<CustomFramerate
+                framerate={props.framerate}
+                onFramerateChange={props.onFramerateChange}
+            />*/}
             <DisableCompiler
                 value={props.disableCompiler}
                 onChange={props.onDisableCompilerChange}

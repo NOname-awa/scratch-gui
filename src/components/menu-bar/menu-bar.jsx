@@ -84,7 +84,7 @@ import themeIcon from './tw-moon.svg';
 //import themeIcon from './黑暗模式.svg';
 import 普通图标 from './普通.svg';
 
-import scratchLogo from './scratch-logo.svg';
+import scratchLogo from './icon.svg';
 
 import sharedMessages from '../../lib/shared-messages';
 
@@ -438,7 +438,7 @@ class MenuBar extends React.Component {
             >
                 <div className={styles.mainMenu}>
                     <div className={styles.fileGroup}>
-                        {this.props.onClickLogo ? (
+                        {/*this.props.onClickLogo*/ true ? (
                             <div className={classNames(styles.menuBarItem)}>
                                 <img
                                     alt="Scratch"
@@ -477,8 +477,8 @@ class MenuBar extends React.Component {
                                 onMouseUp={this.props.onClickTheme}
                             >
                                 <img
-                                    src = {
-                                        1 ? themeIcon : 普通图标
+                                    src={
+                                        themeIcon
                                     }
                                     width="24"
                                     height="24"
@@ -756,21 +756,23 @@ class MenuBar extends React.Component {
                                 </MenuSection>
                             </MenuBarMenu>
                         </div>
-                        {this.props.onClickAddonSettings && (
-                            <div
-                                className={classNames(styles.menuBarItem, styles.hoverable)}
-                                onMouseUp={this.props.onClickAddonSettings}
-                            >
-                                <div>
-                                    <FormattedMessage
-                                        // Note: this string is used by scratch-vm for the addons blocks category
-                                        defaultMessage="Addons"
-                                        description="Menu bar item for addon settings"
-                                        id="tw.menuBar.addons"
-                                    />
+                        {/*
+                            this.props.onClickAddonSettings && (
+                                <div
+                                    className={classNames(styles.menuBarItem, styles.hoverable)}
+                                    onMouseUp={this.props.onClickAddonSettings}
+                                >
+                                    <div>
+                                        <FormattedMessage
+                                            // Note: this string is used by scratch-vm for the addons blocks category
+                                            defaultMessage="Addons"
+                                            description="Menu bar item for addon settings"
+                                            id="tw.menuBar.addons"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )
+                        */}
                         <div
                             className={classNames(styles.menuBarItem, styles.hoverable)}
                             onMouseUp={this.props.onClickSettings}
